@@ -1,56 +1,49 @@
 # Silwa Tecnologia - Plataforma SaaS White-Label
 
-Este projeto é um protótipo de arquitetura de software para uma plataforma SaaS de Delivery Multi-tenant (estilo iFood/Cardápio Digital), focada em alta performance e escalabilidade.
+Este projeto é um protótipo de arquitetura de software para uma plataforma SaaS de Delivery Multi-tenant (estilo iFood/Cardápio Digital), desenvolvido com React, TypeScript e Vite.
 
-O sistema demonstra a separação de responsabilidades entre diferentes "personas" da aplicação: Consumidor Final, Restaurante, Parceiro (Afiliado) e Landing Page Institucional.
+## 🚀 Ambientes Disponíveis
 
-## 🚀 Funcionalidades Demonstradas
+O sistema possui 4 interfaces integradas:
+1.  **Landing Page:** Institucional.
+2.  **Gestor (KDS):** Para restaurantes (com IA Gemini).
+3.  **App Consumidor:** Cardápio digital.
+4.  **Parceiros:** Dashboard de afiliados.
 
-O projeto está dividido em 4 interfaces lógicas dentro de uma SPA (Single Page Application):
+## 📦 Instalação e Execução Local
 
-1.  **Institucional (Landing Page):** Página de alta conversão para atrair novos restaurantes e parceiros.
-2.  **Gestor de Pedidos (KDS):** Dashboard para o restaurante gerenciar pedidos em tempo real (Pendente -> Preparo -> Entrega).
-    *   *Feature IA:* Geração de descrições de pratos usando **Google Gemini**.
-3.  **App do Consumidor:** Interface mobile-first para realização de pedidos (Cardápio Digital).
-4.  **Portal do Parceiro:** Sistema de afiliados com dashboard de comissões e insights de crescimento gerados por IA.
+Você precisará do Node.js instalado.
 
-## 🛠️ Tecnologias Utilizadas
-
-*   **Frontend:** React 19
-*   **Estilização:** Tailwind CSS (via CDN)
-*   **Ícones:** Lucide React
-*   **Gráficos:** Recharts
-*   **Inteligência Artificial:** Google GenAI SDK (Gemini 2.5/3.0)
-*   **Buildless:** Utiliza ES Modules via `esm.sh`, permitindo execução sem `npm install` complexos para prototipagem rápida.
-
-## 📦 Como Rodar
-
-Como este projeto utiliza uma arquitetura moderna baseada em ES Modules via browser:
-
-1.  Clone este repositório.
-2.  Você precisa de um servidor HTTP simples (não abra o arquivo `index.html` direto clicando duas vezes, pois o CORS bloqueará os módulos).
-3.  Se tiver o VS Code instalado, use a extensão **Live Server**.
-4.  Ou via terminal com Python:
+1.  Clone o repositório.
+2.  Instale as dependências:
     ```bash
-    python3 -m http.server
+    npm install
     ```
-5.  Acesse `http://localhost:8000`.
+3.  Rode o servidor de desenvolvimento:
+    ```bash
+    npm run dev
+    ```
+4.  Acesse `http://localhost:3000`.
 
-## 🔑 Configuração da API (Gemini)
+## ☁️ Como Publicar (Deploy)
 
-Para que as funcionalidades de IA (descrição de pratos e insights de parceiros) funcionem, você precisa de uma API Key do Google Gemini.
+A maneira mais fácil de visualizar este projeto online é usar a **Vercel**:
 
-**Nota de Segurança:** Nunca faça commit da sua chave de API diretamente no GitHub.
-Em um ambiente de produção (Vite/Next.js), isso seria configurado via arquivos `.env`.
+1.  Suba este código para o seu GitHub.
+2.  Crie uma conta na [Vercel](https://vercel.com).
+3.  Clique em **"Add New Project"** e importe seu repositório.
+4.  A Vercel detectará automaticamente a configuração do Vite. Clique em **Deploy**.
 
-## 📝 Estrutura de Arquivos
+### Configuração da API Key (IA)
 
-*   `index.html`: Ponto de entrada e import maps.
-*   `App.tsx`: Roteamento simples entre as visões.
-*   `components/`: Componentes visuais das 4 aplicações.
-*   `services/`: Integração com serviços externos (Gemini AI).
-*   `types.ts`: Definições de tipos TypeScript compartilhados.
+Para que a inteligência artificial (Gemini) funcione no ambiente online:
+
+1.  No painel da Vercel, vá em **Settings > Environment Variables**.
+2.  Adicione uma nova variável:
+    *   **Key:** `API_KEY`
+    *   **Value:** Sua chave da API do Google Gemini.
+3.  Redeploy o projeto.
 
 ---
 
-Desenvolvido como demonstração de arquitetura SaaS.
+**Tecnologias:** React 18, Vite, Tailwind CSS, Google GenAI SDK, Recharts.
